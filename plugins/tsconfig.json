@@ -7,7 +7,7 @@
     "declarationMap": false,
     "noEmit": true
   },
-  "include": ["src/**/*.ts"],
+  "include": ["src/**/*.ts", "*.ts"],
   "references": [
     { "path": "../vendor/cordis" },
     { "path": "../vendor/cosmokit" },
