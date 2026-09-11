@@ -146,9 +146,14 @@ External packages **directly declared** for development, tests, types, or toolin
 | [`@aws-sdk/client-s3`](https://github.com/aws/aws-sdk-js-v3) | Apache-2.0 |
 | [`@braintree/sanitize-url`](https://github.com/braintree/sanitize-url) | MIT |
 | [`@electron/notarize`](https://github.com/electron/notarize) | MIT |
+| [`@langfuse/client`](https://github.com/langfuse/langfuse-js) | MIT |
+| [`@langfuse/otel`](https://github.com/langfuse/langfuse-js) | MIT |
+| [`@langfuse/tracing`](https://github.com/langfuse/langfuse-js) | MIT |
 | [`@lexical/headless`](https://github.com/facebook/lexical) | MIT |
 | [`@modelcontextprotocol/server-everything`](https://github.com/modelcontextprotocol/servers) | MIT / Apache-2.0 |
 | [`@modelcontextprotocol/server-filesystem`](https://github.com/modelcontextprotocol/servers) | MIT / Apache-2.0 |
+| [`@opentelemetry/sdk-trace-base`](https://github.com/open-telemetry/opentelemetry-js) | Apache-2.0 |
+| [`@opentelemetry/sdk-trace-node`](https://github.com/open-telemetry/opentelemetry-js) | Apache-2.0 |
 | [`@stylistic/eslint-plugin`](https://github.com/eslint-stylistic/eslint-stylistic) | MIT |
 | [`@testing-library/dom`](https://github.com/testing-library/dom-testing-library) | MIT |
 | [`@testing-library/react`](https://github.com/testing-library/react-testing-library) | MIT |

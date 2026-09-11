@@ -3,3 +3,15 @@
       name: './src/greeting.ts'
     - id: notify
       name: './src/notify.ts'
+    - id: langfuse
+      name: './src/langfuse.ts'
+      # mount only when a key is present; the plugin itself fails loud on a partial key set
+      disabled: !!js process.env.LANGFUSE_SECRET_KEY === undefined
+      config:
+        environment: !!js process.env.LANGFUSE_TRACING_ENVIRONMENT ?? 'dev'
+        captureContent: true
+    - id: langfuse-query
+      name: './src/langfuse-query.ts'
+      disabled: !!js process.env.LANGFUSE_SECRET_KEY === undefined
+      config:
+        maxLimit: 50
