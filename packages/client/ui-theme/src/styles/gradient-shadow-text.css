@@ -1,6 +1,6 @@
 body {
-  --dsw-linear-gradient-think: linear-gradient(180deg, #fff 20.19%, rgba(255, 255, 255, 0) 100%);
-  --dsw-linear-think-select: linear-gradient(180deg, #f5f6f7 20.19%, rgba(245, 246, 247, 0) 100%);
+  --dsw-linear-gradient-think: linear-gradient(180deg, #fdf6e3 20.19%, rgba(253, 246, 227, 0) 100%);
+  --dsw-linear-think-select: linear-gradient(180deg, #f4f0d9 20.19%, rgba(244, 240, 217, 0) 100%);
   /* 阴影 */
   --dsw-shadow-lv1: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
   --dsw-shadow-lv1-blur: 0 4px 12px 0 rgba(0, 0, 0, 0.02);
@@ -35,8 +35,8 @@ body * {
 }
 
 body[data-ds-dark-theme] {
-  --dsw-linear-gradient-think: linear-gradient(180deg, #151517 20.19%, rgba(21, 21, 23, 0) 100%);
-  --dsw-linear-think-select: linear-gradient(180deg, #232325 20.19%, rgba(35, 35, 37, 0) 100%);
+  --dsw-linear-gradient-think: linear-gradient(180deg, #2e3440 20.19%, rgba(46, 52, 64, 0) 100%);
+  --dsw-linear-think-select: linear-gradient(180deg, #3b4252 20.19%, rgba(59, 66, 82, 0) 100%);
 }
 
 /* ---------- 字体 ---------- */

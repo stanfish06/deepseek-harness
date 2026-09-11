@@ -1,11 +1,11 @@
 .root {
-  --json-tree-property: #881391;
-  --json-tree-string: #c41a16;
-  --json-tree-number: #1c00cf;
-  --json-tree-keyword: #1c00cf;
-  --json-tree-punctuation: #202124;
-  --json-tree-icon: #5f6368;
-  --json-tree-hover: rgb(60 64 67 / 4%);
+  --json-tree-property: #3a94c5;
+  --json-tree-string: #35a77c;
+  --json-tree-number: #df69ba;
+  --json-tree-keyword: #df69ba;
+  --json-tree-punctuation: #5c6a72;
+  --json-tree-icon: #939f91;
+  --json-tree-hover: rgb(92 106 114 / 6%);
 
   min-width: 0;
   overflow: auto;
@@ -18,13 +18,13 @@
 }
 
 :global(body[data-ds-dark-theme]) .root {
-  --json-tree-property: #5db0d7;
-  --json-tree-string: #f28b82;
-  --json-tree-number: #99c8ff;
-  --json-tree-keyword: #99c8ff;
-  --json-tree-punctuation: #e8eaed;
-  --json-tree-icon: #9aa0a6;
-  --json-tree-hover: rgb(232 234 237 / 5%);
+  --json-tree-property: #88c0d0;
+  --json-tree-string: #a3be8c;
+  --json-tree-number: #b48ead;
+  --json-tree-keyword: #81a1c1;
+  --json-tree-punctuation: #d8dee9;
+  --json-tree-icon: #7b869a;
+  --json-tree-hover: rgb(216 222 233 / 6%);
 }
 
 .container {

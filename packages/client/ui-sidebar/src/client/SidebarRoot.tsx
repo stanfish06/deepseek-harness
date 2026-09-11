@@ -198,7 +198,6 @@ export function SidebarRoot({
                     : (
                       <span className={css.localBuildBrand}>
                         <span className={css.localBuildTitle}>{t('brand.localBuild')}</span>
-                        <span className={css.buildVersion}>{buildVersion}</span>
                       </span>
                     ),
                 })}

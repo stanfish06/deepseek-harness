@@ -13,9 +13,9 @@
  * uncapped radius (50%, 100%, or a pill radius far above the box size) pairs
  * `corner-shape: round` with its `border-radius` in the owning component
  * sheet. The corner-shape stylesheet spec enforces that pairing. */
-@supports (corner-shape: superellipse(1.5)) {
+@supports (corner-shape: superellipse(4)) {
   :root {
-    --dsw-corner-shape: superellipse(1.5);
+    --dsw-corner-shape: superellipse(4);
   }
 
   *,
