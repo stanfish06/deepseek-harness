@@ -12,7 +12,7 @@ import { describe, expect, it } from 'vitest'
 import { atRuleBlock, packageStylesheets, parseRules } from './stylesheet-scan.ts'
 
 /** The support guard prelude, spelled exactly as the sheet must spell it. */
-const GUARD = '@supports (corner-shape: superellipse(1.5))'
+const GUARD = '@supports (corner-shape: superellipse(4))'
 /** The smoothing token corner-shape.css owns. */
 const TOKEN = '--dsw-corner-shape'
 
@@ -52,7 +52,7 @@ describe('corner-shape.css smoothing', () => {
     // generated ::before/::after) reaches every rounded surface.
     const rules = parseRules(withoutComments.slice(guard!.start + 1, guard!.end))
     const root = rules.find(rule => rule.selectors.includes(':root'))
-    expect(root?.declarations).toContainEqual([TOKEN, 'superellipse(1.5)'])
+    expect(root?.declarations).toContainEqual([TOKEN, 'superellipse(4)'])
     const universal = rules.find(rule => rule.selectors.includes('*'))
     expect(universal?.selectors).toEqual(['*', '*::before', '*::after'])
     expect(universal?.declarations).toContainEqual(['corner-shape', `var(${TOKEN})`])
