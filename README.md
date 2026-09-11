@@ -73,3 +73,15 @@ For agents, follow [AGENTS.md](AGENTS.md).
 [MIT](LICENSE)
 
 Third-party dependencies and their licenses are disclosed in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+
+## Local patch
+<table width="100%">
+  <tr>
+    <th>App view</th>
+  </tr>
+  <tr>
+    <td width="100%">
+      <img src="./dsh-app.png" width="600" />
+    </td>
+  </tr>
+</table>
