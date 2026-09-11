@@ -64,6 +64,11 @@ function clamp(text: string, max = 200): string {
   return line.length > max ? `${line.slice(0, max - 1)}…` : line;
 }
 
+function appleString(text: string): string {
+  // AppleScript string literal: escape backslash and double quote.
+  return `"${text.replace(/\\/gu, "\\\\").replace(/"/gu, '\\"')}"`;
+}
+
 export function apply(ctx: Context, config: Config = {}): void {
   const opts = resolve(config);
   const enabled = new Set<NotifyEvent>(opts.events);
@@ -73,6 +78,16 @@ export function apply(ctx: Context, config: Config = {}): void {
     body: string,
     urgency: "low" | "normal" | "critical" = "normal",
   ): void => {
+    if (process.platform === "win32") return; // not supported on Windows yet
+    if (process.platform === "darwin") {
+      // display notification has no urgency; only title and body are used.
+      const script = `display notification ${appleString(body)} with title ${appleString(summary)}`;
+      execFile("osascript", ["-e", script], (error) => {
+        if (error)
+          ctx.logger.warn(`notify: osascript failed: ${error.message}`);
+      });
+      return;
+    }
     execFile(
       "notify-send",
       ["--app-name", opts.appName, "--urgency", urgency, "--", summary, body],

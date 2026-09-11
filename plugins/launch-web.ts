@@ -14,6 +14,17 @@ const REPO_ROOT = fileURLToPath(new URL("..", import.meta.url));
 const DSH_BIN = join(REPO_ROOT, "apps/cli/src/bin.ts");
 const URL_LINE = /dsh web: (http:\/\/\S+)/u;
 const CHROMIUM_LIKE = /chrom|brave|edge|vivaldi|opera/iu;
+// macOS browsers that accept the --app= PWA flag. User's usual rotation
+// (chrome, brave, helium) is probed first, then other Chromium apps.
+const MAC_BROWSER_APPS = [
+  "Google Chrome.app",
+  "Brave Browser.app",
+  "Helium.app",
+  "Microsoft Edge.app",
+  "Vivaldi.app",
+  "Opera.app",
+  "Arc.app",
+];
 
 type OpenMode = "app" | "tab" | "none";
 
@@ -57,25 +68,45 @@ async function xdgDefaultBrowser(): Promise<string[] | undefined> {
   return argv.length > 0 ? argv : undefined;
 }
 
+// macOS app mode launches a Chromium-family app as a PWA via `open -na`.
+// Returns the base `open` argv; openBrowser appends `--app=<url>`.
+function macAppModeArgv(): { argv: string[]; asApp: boolean } | undefined {
+  if (process.platform !== "darwin") return undefined;
+  for (const app of MAC_BROWSER_APPS) {
+    // `open -a` takes the app name (with or without .app) or a path.
+    if (existsSync(join("/Applications", app)) === false) continue;
+    return { argv: ["open", "-n", "-a", app, "--args"], asApp: true };
+  }
+  return undefined;
+}
+
 async function browserArgv(
   mode: Exclude<OpenMode, "none">,
 ): Promise<{ argv: string[]; asApp: boolean }> {
   const override = process.env.DSH_DEV_BROWSER;
-  const base =
-    override !== undefined && override !== ""
-      ? override.split(/\s+/u)
-      : await xdgDefaultBrowser();
-  if (base === undefined) {
-    const opener =
-      process.platform === "darwin"
-        ? "open"
-        : process.platform === "win32"
-          ? "start"
-          : "xdg-open";
-    return { argv: [opener], asApp: false };
+  if (override !== undefined && override !== "") {
+    const base = override.split(/\s+/u);
+    const asApp =
+      mode === "app" && CHROMIUM_LIKE.test(basename(base[0] ?? ""));
+    return { argv: base, asApp };
   }
-  const asApp = mode === "app" && CHROMIUM_LIKE.test(basename(base[0] ?? ""));
-  return { argv: base, asApp };
+  if (mode === "app") {
+    const macApp = macAppModeArgv();
+    if (macApp !== undefined) return macApp;
+  }
+  const base = await xdgDefaultBrowser();
+  if (base !== undefined) {
+    const asApp =
+      mode === "app" && CHROMIUM_LIKE.test(basename(base[0] ?? ""));
+    return { argv: base, asApp };
+  }
+  const opener =
+    process.platform === "darwin"
+      ? "open"
+      : process.platform === "win32"
+        ? "start"
+        : "xdg-open";
+  return { argv: [opener], asApp: false };
 }
 
 async function openBrowser(
