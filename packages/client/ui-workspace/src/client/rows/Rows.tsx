@@ -265,7 +265,7 @@ function sessionStatuses(
   }
   if (subagents !== undefined) return [subagents]
   if (node.completed) return [{ state: 'done', label: t('status.completed') }]
-  return [{ state: 'done', label: t('status.idle') }]
+  return [{ state: 'idle', label: t('status.idle') }]
 }
 
 /** Primary status dot plus every status's screen-reader label, shared by the search and session rows. */
@@ -402,7 +402,7 @@ export function SessionNodeItem({
   const selected = node.id === currentId
   const statuses = sessionStatuses(node, t)
   const primaryStatus = statuses[0]
-  const showStatus = primaryStatus.state !== 'done' || row.completed
+  const showStatus = !row.blank && (!flat || primaryStatus.state !== 'idle')
   const [menuOpen, setMenuOpen] = useState(false)
   const rowRef = useRef<HTMLDivElement>(null)
   useEffect(() => {

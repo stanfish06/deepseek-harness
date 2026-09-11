@@ -214,9 +214,9 @@ describe('workspace browser rows', () => {
     )
     const stateDot = (view: ReturnType<typeof renderRow>) =>
       view.container.querySelector('[data-state]')
-    // No completion reminder, not running: no state dot at all.
+    // No completion reminder, not running: the quiet idle dot, never the green one.
     const plain = renderRow({})
-    expect(stateDot(plain)).toBeNull()
+    expect(stateDot(plain)?.getAttribute('data-state')).toBe('idle')
     plain.unmount()
     // Completed while unviewed: the green done dot.
     const done = renderRow({ completed: true })
@@ -554,7 +554,8 @@ describe('workspace browser rows', () => {
         onRename={vi.fn()} onFork={vi.fn()} onArchive={vi.fn()} t={t} />)
       fireEvent.pointerEnter(screen.getByRole('treeitem').parentElement as HTMLElement)
       act(() => { vi.advanceTimersByTime(500) })
-      expect(screen.getByText('空闲')).toBeTruthy()
+      // Row label (visually hidden) plus the hover card's status line.
+      expect(screen.getAllByText('空闲')).toHaveLength(2)
       expect(screen.getAllByText('刚刚')).toHaveLength(2)
     } finally {
       vi.useRealTimers()
