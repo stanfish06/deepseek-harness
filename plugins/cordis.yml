@@ -1,5 +1,5 @@
 - insert:
     - id: greeting
-      name: '/home/stan/Git/deepseek-harness/plugins/src/greeting.ts'
+      name: './src/greeting.ts'
     - id: notify
-      name: '/home/stan/Git/deepseek-harness/plugins/src/notify.ts'
+      name: './src/notify.ts'

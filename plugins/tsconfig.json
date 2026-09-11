@@ -7,5 +7,14 @@
     "declarationMap": false,
     "noEmit": true
   },
-  "include": ["src/**/*.ts"]
+  "include": ["src/**/*.ts"],
+  "references": [
+    { "path": "../vendor/cordis" },
+    { "path": "../vendor/cosmokit" },
+    { "path": "../vendor/schemastery" },
+    { "path": "../packages/core/agent" },
+    { "path": "../packages/core/tools" },
+    { "path": "../packages/interaction/user-approval" },
+    { "path": "../packages/interaction/user-questions" }
+  ]
 }

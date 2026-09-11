@@ -18,6 +18,6 @@ function boxed(lines: string[]): string {
   return [top, border, ...lines.map(row), border, bottom].join("\n");
 }
 
-export function apply(ctx: Context) {
+export function apply(_ctx: Context) {
   console.log(boxed(["<*\\\\><>", "deepseek harness", "Hello Stan!"]));
 }
