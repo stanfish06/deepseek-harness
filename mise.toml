@@ -1,0 +1,32 @@
+[tools]
+node = "26"
+pnpm = "11.7.0"
+uv = "latest"
+
+[env]
+DSH_DEV_WEB_HOST = "127.0.0.1"
+DSH_DEV_WEB_PORT = "3080"
+DSH_DEV_WEB_URL = "http://{{env.DSH_DEV_WEB_HOST}}:{{env.DSH_DEV_WEB_PORT}}"
+DSH_DEV_PATCH = "{{config_root}}/plugins/cordis.yml"
+DSH_DEV_OPEN = "app"
+
+[tasks."plugins:sync"]
+run = 'uv run --script plugins/sync_cordis.py --relative --prune'
+
+[tasks."plugins:check"]
+run = 'uv run --script plugins/sync_cordis.py --relative --prune --check'
+
+[tasks."plugins:typecheck"]
+run = 'pnpm exec tsc -p plugins/tsconfig.json'
+
+[tasks.web]
+depends = ["plugins:sync"]
+run = 'pnpm dsh web --patch "$DSH_DEV_PATCH" --host "$DSH_DEV_WEB_HOST" --port "$DSH_DEV_WEB_PORT" "$@"'
+
+[tasks.app]
+depends = ["plugins:sync"]
+run = 'node --import tsx/esm plugins/launch-web.ts --patch "$DSH_DEV_PATCH" --host "$DSH_DEV_WEB_HOST" --port "$DSH_DEV_WEB_PORT" "$@"'
+
+[tasks.headless]
+depends = ["plugins:sync"]
+run = 'pnpm dsh --profile headless --patch "$DSH_DEV_PATCH" "$@"'

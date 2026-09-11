@@ -25,7 +25,6 @@ tmp/
 .vscode/
 .DS_Store
 .idea
-mise.toml
 dist-exe/
 /dist/
 apps/desktop/.desktop-build/
