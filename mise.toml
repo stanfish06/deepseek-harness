@@ -30,6 +30,9 @@ run = 'pnpm dsh web --patch "$DSH_DEV_PATCH" --host "$DSH_DEV_WEB_HOST" --port "
 depends = ["plugins:sync"]
 run = 'node --import tsx/esm plugins/launch-web.ts --patch "$DSH_DEV_PATCH" --host "$DSH_DEV_WEB_HOST" --port "$DSH_DEV_WEB_PORT" "$@"'
 
+[tasks.app-nosync]
+run = 'node --import tsx/esm plugins/launch-web.ts --patch "$DSH_DEV_PATCH" --host "$DSH_DEV_WEB_HOST" --port "$DSH_DEV_WEB_PORT" "$@"'
+
 [tasks.watch]
 depends = ["plugins:sync"]
 run = 'pnpm run dev:web'

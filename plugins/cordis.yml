@@ -15,3 +15,5 @@
       disabled: !!js process.env.LANGFUSE_SECRET_KEY === undefined
       config:
         maxLimit: 50
+    - id: uv
+      name: './src/uv.ts'
