@@ -11,7 +11,7 @@
   height: 100%;
   display: grid;
   place-items: center;
-  background: var(--dsw-alias-bg-base, var(--dsh-boot-bg));
+  background: var(--dsw-alias-bg-base, var(--dsh-boot-bg, Canvas));
 }
 
 :global(body[data-ds-dark-theme]) .boot {
