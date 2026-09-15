@@ -37,10 +37,10 @@ exports[`sidebar shell snapshots > renders the collapsed rail after the crossfad
         </span>
         <svg
           class="panelIcon"
-          data-content="35f95b0c"
-          fill="none"
+          data-content="86d70179"
+          fill="currentColor"
           height="18"
-          viewBox="0 0 16 16"
+          viewBox="0 0 256 256"
           width="18"
           xmlns="http://www.w3.org/2000/svg"
         />
@@ -52,10 +52,10 @@ exports[`sidebar shell snapshots > renders the collapsed rail after the crossfad
       type="button"
     >
       <svg
-        data-content="c0ce4dcc"
-        fill="none"
+        data-content="406da246"
+        fill="currentColor"
         height="18"
-        viewBox="0 0 16 16"
+        viewBox="0 0 256 256"
         width="18"
         xmlns="http://www.w3.org/2000/svg"
       />
@@ -143,12 +143,7 @@ exports[`sidebar shell snapshots > renders the expanded column (wordmark, capsul
                 <span
                   class="localBuildTitle"
                 >
-                  DSH Local Build
-                </span>
-                <span
-                  class="buildVersion"
-                >
-                  1.2.3-rc.4-abc1234-dirty
+                  DeepSeek
                 </span>
               </span>
             </div>
@@ -162,10 +157,10 @@ exports[`sidebar shell snapshots > renders the expanded column (wordmark, capsul
       >
         <svg
           class="panelIcon"
-          data-content="35f95b0c"
-          fill="none"
+          data-content="86d70179"
+          fill="currentColor"
           height="16"
-          viewBox="0 0 16 16"
+          viewBox="0 0 256 256"
           width="16"
           xmlns="http://www.w3.org/2000/svg"
         />
@@ -177,10 +172,10 @@ exports[`sidebar shell snapshots > renders the expanded column (wordmark, capsul
       type="button"
     >
       <svg
-        data-content="c0ce4dcc"
-        fill="none"
+        data-content="406da246"
+        fill="currentColor"
         height="14"
-        viewBox="0 0 16 16"
+        viewBox="0 0 256 256"
         width="14"
         xmlns="http://www.w3.org/2000/svg"
       />
@@ -275,11 +270,6 @@ exports[`sidebar shell snapshots > renders the expanded column in the default lo
                 >
                   DSH 本地构建
                 </span>
-                <span
-                  class="buildVersion"
-                >
-                  1.2.3-rc.4-abc1234-dirty
-                </span>
               </span>
             </div>
           </span>
@@ -292,10 +282,10 @@ exports[`sidebar shell snapshots > renders the expanded column in the default lo
       >
         <svg
           class="panelIcon"
-          data-content="35f95b0c"
-          fill="none"
+          data-content="86d70179"
+          fill="currentColor"
           height="16"
-          viewBox="0 0 16 16"
+          viewBox="0 0 256 256"
           width="16"
           xmlns="http://www.w3.org/2000/svg"
         />
@@ -307,10 +297,10 @@ exports[`sidebar shell snapshots > renders the expanded column in the default lo
       type="button"
     >
       <svg
-        data-content="c0ce4dcc"
-        fill="none"
+        data-content="406da246"
+        fill="currentColor"
         height="14"
-        viewBox="0 0 16 16"
+        viewBox="0 0 256 256"
         width="14"
         xmlns="http://www.w3.org/2000/svg"
       />

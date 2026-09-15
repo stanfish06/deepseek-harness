@@ -86,7 +86,8 @@ describe('SkillRow', () => {
     expect(row.getAttribute('role')).toBeNull()
     expect(view.container.textContent).toContain('正在加载 skill')
     expect(view.container.textContent).toContain('dsh-manage-issues')
-    expect(view.container.querySelector('svg [fill="currentColor"]')).not.toBeNull()
+    // Phosphor icons rest currentColor on the root svg, not on inner paths.
+    expect(view.container.querySelector('svg[fill="currentColor"]')).not.toBeNull()
   })
 
   it('uses the first failure line in the summary and exposes the full error', () => {
