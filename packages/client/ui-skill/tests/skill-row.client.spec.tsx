@@ -86,8 +86,9 @@ describe('SkillRow', () => {
     expect(row.getAttribute('role')).toBeNull()
     expect(view.container.textContent).toContain('正在加载 skill')
     expect(view.container.textContent).toContain('dsh-manage-issues')
-    // Phosphor icons rest currentColor on the root svg, not on inner paths.
-    expect(view.container.querySelector('svg[fill="currentColor"]')).not.toBeNull()
+    // The inline SVG icon set sets fill="none" on the root svg and
+    // fill="currentColor" on inner paths so the glyph inherits theme color.
+    expect(view.container.querySelector('svg[fill="none"] path[fill="currentColor"]')).not.toBeNull()
   })
 
   it('uses the first failure line in the summary and exposes the full error', () => {
