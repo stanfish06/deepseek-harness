@@ -75,6 +75,8 @@ pnpm dsh web
 
 请先阅读[开发指南](docs/development.zh.md)与[架构文档](docs/architecture.zh.md)。
 
+`pnpm run dev:web` 会在一个终端里完成构建、启动，并在源码修改时重建 client bundle；`make help` 列出 Web 与 Desktop 对应的 Make target。完整表格见开发指南的「应用命令」一节。
+
 面向 agent：请遵循 [AGENTS.md](AGENTS.md)。
 
 ## 引用
@@ -94,3 +96,15 @@ pnpm dsh web
 [MIT](LICENSE)
 
 第三方依赖及其许可证见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+
+## 本地补丁
+<table width="100%">
+  <tr>
+    <th>应用界面</th>
+  </tr>
+  <tr>
+    <td width="100%">
+      <img src="./dsh-app.png" width="600" />
+    </td>
+  </tr>
+</table>
